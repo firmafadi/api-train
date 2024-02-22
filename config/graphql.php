@@ -75,14 +75,14 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                // ExampleQuery::class,
+                "getBook" => \App\GraphQL\Queries\GetBook::class,
             ],
             'mutation' => [
                 // ExampleMutation::class,
             ],
             // The types only available in this schema
             'types' => [
-                // ExampleType::class,
+                "GetBook" =>  \App\GraphQL\Types\GetBook::class,
             ],
 
             // Laravel HTTP middleware

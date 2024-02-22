@@ -24,6 +24,27 @@ Route::prefix('v1')->group(function () {
     Route::put('book/{id}', 'BookController@update');
     Route::patch('book/{id}', 'BookController@update');
     Route::post('file', 'FileController@fileUpload');
+
+    Route::group(['middleware' => ['header']], function() {
+        Route::group(['middleware' => 'jwt.auth'], function () {
+            Route::get('employee', 'EmployeeController@index');
+            Route::get('employee/{id}', 'EmployeeController@show');
+            Route::post('employee', 'EmployeeController@store');
+            Route::delete('employee/{id}', 'EmployeeController@destroy');
+            Route::patch('employee/{id}', 'EmployeeController@update');
+        });
+    });
+
+    Route::group(['middleware' => ['header_date']], function() {
+        Route::group(['middleware' => 'jwt.auth'], function () {
+            Route::get('student', 'StudentController@index');
+            Route::get('student/{id}', 'StudentController@show');
+            Route::post('student', 'StudentController@store');
+            Route::delete('student/{id}', 'StudentController@destroy');
+            Route::patch('student/{id}', 'StudentController@update');
+        });
+    });
+
 });
 
 Route::prefix('v2')->group(function () {
