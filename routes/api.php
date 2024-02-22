@@ -64,7 +64,11 @@ Route::prefix('v3')->group(function () {
 
     // Route::group(['middleware' => 'jwt.auth'], function () {
         Route::get('basic/book', 'BookV3Controller@index');
+        Route::group(['middleware' => 'admin'], function () {
+
         Route::post('basic/book', 'BookV3Controller@store');
+});
+
     // });
 });
 

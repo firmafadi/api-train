@@ -67,6 +67,7 @@ class Kernel extends HttpKernel
         'jwt.auth' => \Tymon\JWTAuth\Http\Middleware\Authenticate::class,
         'jwt.refresh' => \Tymon\JWTAuth\Http\Middleware\RefreshToken::class,
         'header' => \App\Http\Middleware\HeaderMiddleware::class,
-        'header_date' => \App\Http\Middleware\HeaderMiddlewareDate::class
+        'header_date' => \App\Http\Middleware\HeaderMiddlewareDate::class,
+        'admin' => \App\Http\Middleware\AdminMiddleware::class
     ];
 }
